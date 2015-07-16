@@ -13,7 +13,7 @@ print "
 ーーーーーーーーー\n\n";
 
 for (my $count = 0; $count < 3; ) {
-  &question(int(rand(2)) + 1);
+  &question(int(rand(6)) + 1);
 
   print "答え: ";
   if(<STDIN> == $quiz_ans ){
@@ -29,6 +29,10 @@ sub question {
   switch ($switch) {
     case 1 { print "No.１: ¥D+\n1:一個以上連続する数字以外の文字列\n2:一個以上連続する数字\n3:一個の数字以外の文字\n\n"; $quiz_ans = 1;}
     case 2 { print "No.２: ^yes　マッチするのは？\n1:Yes\n2:no yes\n3:yes no\n\n"; $quiz_ans = 3;}
+    case 3 { print "No.３: ^　マッチするのは？\n1:すべての文字列\n2:記号\n3:数字\n\n"; $quiz_ans = 1;}
+    case 4 { print "No.４: yes\$　マッチするのは？\n1:Yes\n2:no yes\n3:yes no\n\n"; $quiz_ans = 2;}
+    case 5 { print "No.５: ^yes\$　マッチするのは？\n1:Yes\n2:yes\n3:yes no\n\n"; $quiz_ans = 2;}
+    case 6 { print "No.５: ca.\$　マッチするのは？\n1:car\n2:CAT\n3:ca\n\n"; $quiz_ans = 1;}
   }
 }
 
