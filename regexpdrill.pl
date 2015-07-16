@@ -13,14 +13,20 @@ print "
 ーーーーーーーーー\n\n";
 
 for (my $count = 0; $count < 3; ) {
-  &question(int(rand(6)) + 1);
+  &question(int(rand(8)) + 1);
 
   print "答え: ";
   if(<STDIN> == $quiz_ans ){
     print "正解です\n\n";
     $count++;
   } else {
-    end();
+    $count = 0;
+    retry();
+  }
+
+  if($count == 3) {
+    print "合格です！正解数は${count}です\n\n";
+    exit(0);
   }
 }
 
@@ -32,15 +38,16 @@ sub question {
     case 3 { print "No.３: ^　マッチするのは？\n1:すべての文字列\n2:記号\n3:数字\n\n"; $quiz_ans = 1;}
     case 4 { print "No.４: yes\$　マッチするのは？\n1:Yes\n2:no yes\n3:yes no\n\n"; $quiz_ans = 2;}
     case 5 { print "No.５: ^yes\$　マッチするのは？\n1:Yes\n2:yes\n3:yes no\n\n"; $quiz_ans = 2;}
-    case 6 { print "No.５: ca.\$　マッチするのは？\n1:car\n2:CAT\n3:ca\n\n"; $quiz_ans = 1;}
+    case 6 { print "No.６: ca.　マッチするのは？\n1:car\n2:CAT\n3:ca\n\n"; $quiz_ans = 1;}
+    case 7 { print "No.７: point[0-9]　マッチするのは？\n1:pointA\n2:point 2\n3:point1\n\n"; $quiz_ans = 3;}
+    case 8 { print "No.８: point[^0-9]　マッチするのは？\n1:pointA\n2:point 2\n3:point1\n\n"; $quiz_ans = 1;}
   }
 }
 
-sub end {
+sub retry {
   print "\n";
   print "＿人人人人人人人人人人人人人＿\n";
   print "＞　最初からやり直し！！！　＜\n";
   print "￣Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y￣\n";
   print "\n";
-  exit(0);
 }
