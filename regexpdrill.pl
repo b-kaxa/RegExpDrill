@@ -2,15 +2,15 @@ use strict; use warnings; use Switch;
 my $quiz_ans;
 
 print "
-ーーーーーーーーー
-｜　　　　　　　｜
-｜　　　　　　　｜
-｜　　　　　　　｜
-｜正規表現ドリル｜
-｜　　　　　　　｜
-｜　　　　　　　｜
-｜　　　　　　　｜
-ーーーーーーーーー\n\n";
+ーーーーーーーーーーーーーーーーーー
+｜　　　　　　　　　　　　　　　　｜
+｜　　　　　　　　　　　　　　　　｜
+｜　　　　　　　　　　　　　　　　｜
+｜　　　　　正規表現ドリル　　　　｜
+｜　　　　　　　　　　　　　　　　｜
+｜　　　　　　　　　　　　　　　　｜
+｜　　　　　　　　　　　　　　　　｜
+ーーーーーーーーーーーーーーーーーー\n\n";
 
 for (my $count = 0; $count < 3; ) {
   &question(int(rand(8)) + 1);
@@ -18,6 +18,7 @@ for (my $count = 0; $count < 3; ) {
   print "答え: ";
   if(<STDIN> == $quiz_ans ){
     print "正解です\n\n";
+    print "ーーーーーーーーーーーーーーーーーー\n\n";
     $count++;
   } else {
     $count = 0;
@@ -49,5 +50,6 @@ sub retry {
   print "＿人人人人人人人人人人人人人＿\n";
   print "＞　最初からやり直し！！！　＜\n";
   print "￣Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y￣\n";
+  print "ーーーーーーーーーーーーーーーーーー\n";
   print "\n";
 }
